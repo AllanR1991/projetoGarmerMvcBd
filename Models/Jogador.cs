@@ -22,6 +22,10 @@ namespace projetoGarmerMvcBd.Models
         
         [ForeignKey("Equipe")]//Data Notation referenciando a tabela ForeignKey.
         public int IdEquipe { get; set; }
+
+        public Equipe Equipe { get; set; }
+        
+        
         
         
     }

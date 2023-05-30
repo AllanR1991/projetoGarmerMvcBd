@@ -35,10 +35,10 @@ namespace projetoGarmerMvcBd.Infra
                 /*
                 Autenicação pelo SqlServer
                 
-                user Id = "Nome do usuario de login"
+                User Id = "Nome do usuario de login"
                 pwd = "senha do seu usuario"
                 */
-                optionsBuilder.UseSqlServer("Data Source = ; initial catalog = gamerMvcBd ; Integrated Security = true; TrustServerCertificate = true");
+                optionsBuilder.UseSqlServer("Data Source = NOTE06-S15; Initial Catalog = gamerMvcBdManha ; User Id = sa; pwd = Senai@134; TrustServerCertificate = true");
             }
             
         }
