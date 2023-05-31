@@ -7,6 +7,24 @@
 
 <h1>Tela de Equipes</h1>
 
+<!-- 
+    post -> enviar
+    get -> obter
+
+
+
+Importante ter o enctype pra quando trabalhamos com arquivos 
+-->
+<form method="post" action='@Url.Action("Cadastar")' enctype="multipart/form-data">
+    <label for="inputName">Nome</label>
+    <input type="text" name="Nome" id="inputName">
+    <label for="inputImagem">Imagem</label>
+    <input type="file" name="Imagem" id="inputImagem">
+
+    <button type = "submit">Cadastrar</button>
+</form>
+
+
 <table class="table table-striped table-reponsive">
     <thead>
         <th>Id</th>
