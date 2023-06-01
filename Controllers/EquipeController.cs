@@ -48,7 +48,7 @@ namespace projetoGarmerMvcBd.Controllers
 
             /*Atribuição de valores recebidos do formulario.*/
             novaEquipe.Name = form["Nome"].ToString();
-            novaEquipe.Imagem = form["Imagem"].ToString();
+            // novaEquipe.Imagem = form["Imagem"].ToString();
 
             /*
         Aqui estava chegando como string(não queremos assim)
@@ -90,7 +90,16 @@ namespace projetoGarmerMvcBd.Controllers
             /*Retorna para o Local chamando a toda de Listar(método Index)*/
             return LocalRedirect("~/Equipe/Listar");
         }
+        /*Sempre que for usar um parametro em uma função deve ter tambem um parametro na rota.*/
+        [Route("Excluir/{id}")]
+        public IActionResult Excluir (int id){
+            /*FirstOrDefault(e => e.IdEquipe == id) retornar o primeiro objeto que encontrar.*/
+            Equipe equipeEncontrada = acessoBd.Equipe.FirstOrDefault(e => e.IdEquipe == id);
+            acessoBd.Remove(equipeEncontrada);
+            acessoBd.SaveChanges();
 
+            return LocalRedirect("~/Equipe/Listar");
+        }
 
 
     }

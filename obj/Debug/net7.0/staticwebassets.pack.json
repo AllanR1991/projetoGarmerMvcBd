@@ -13,6 +13,10 @@
       "PackagePath": "staticwebassets\\favicon.ico"
     },
     {
+      "Id": "C:\\Users\\41017653836\\Desktop\\projetoGarmerMvcBd\\wwwroot\\img\\Equipes\\download.jfif",
+      "PackagePath": "staticwebassets\\img\\Equipes\\download.jfif"
+    },
+    {
       "Id": "C:\\Users\\41017653836\\Desktop\\projetoGarmerMvcBd\\wwwroot\\js\\site.js",
       "PackagePath": "staticwebassets\\js\\site.js"
     },

@@ -1,6 +1,6 @@
 {
   "Version": 1,
-  "Hash": "K7fRifR2Ow8bH1gU9hd9DW/w3eb51lyGi6Ab9Zu9h64=",
+  "Hash": "l/eB4g+Nx6fLNsRpbQj9TvmGr+1hMlxPlBd66528rS8=",
   "Source": "projetoGarmerMvcBd",
   "BasePath": "_content/projetoGarmerMvcBd",
   "Mode": "Default",
@@ -83,6 +83,23 @@
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
       "OriginalItemSpec": "wwwroot\\favicon.ico"
+    },
+    {
+      "Identity": "C:\\Users\\41017653836\\Desktop\\projetoGarmerMvcBd\\wwwroot\\img\\Equipes\\download.jfif",
+      "SourceId": "projetoGarmerMvcBd",
+      "SourceType": "Discovered",
+      "ContentRoot": "C:\\Users\\41017653836\\Desktop\\projetoGarmerMvcBd\\wwwroot\\",
+      "BasePath": "_content/projetoGarmerMvcBd",
+      "RelativePath": "img/Equipes/download.jfif",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\img\\Equipes\\download.jfif"
     },
     {
       "Identity": "C:\\Users\\41017653836\\Desktop\\projetoGarmerMvcBd\\wwwroot\\js\\site.js",
