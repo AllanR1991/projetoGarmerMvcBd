@@ -16,6 +16,10 @@ build_property.GenerateRazorMetadataSourceChecksumAttributes =
 build_property.MSBuildProjectDirectory = c:\Users\41017653836\Desktop\projetoGarmerMvcBd
 build_property._RazorSourceGeneratorDebug = 
 
+[c:/Users/41017653836/Desktop/projetoGarmerMvcBd/Views/Equipe/Alterar.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcRXF1aXBlXEFsdGVyYXIuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
 [c:/Users/41017653836/Desktop/projetoGarmerMvcBd/Views/Equipe/Index.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcRXF1aXBlXEluZGV4LmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
@@ -26,6 +30,10 @@ build_metadata.AdditionalFiles.CssScope =
 
 [c:/Users/41017653836/Desktop/projetoGarmerMvcBd/Views/Home/Privacy.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSG9tZVxQcml2YWN5LmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[c:/Users/41017653836/Desktop/projetoGarmerMvcBd/Views/Jogador/index.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSm9nYWRvclxpbmRleC5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
 [c:/Users/41017653836/Desktop/projetoGarmerMvcBd/Views/Shared/Error.cshtml]

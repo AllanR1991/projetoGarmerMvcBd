@@ -1,0 +1,24 @@
+@model Jogador
+
+@{
+    ViewData["Title"] = "Jogador";
+}
+
+<h1>Tela de Jogadores</h1>
+
+<form method="post" action="@Url.Action("Cadastrar")" enctype="multipart/form-data">
+    <label for="">Nome</label>
+    <input type="text" name="Nome" required>
+    <label for="">E-mail</label>
+    <input type="email" name="Email" required>
+    <label for="">Imagem</label>
+    <input type="file" name="Imagem" id="inputImagem">
+    
+    <button type="submit">Cadastrar</button>
+
+
+
+    
+
+</form>
+@* Usar Select *@

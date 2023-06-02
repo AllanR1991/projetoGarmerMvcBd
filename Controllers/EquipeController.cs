@@ -101,6 +101,48 @@ namespace projetoGarmerMvcBd.Controllers
             return LocalRedirect("~/Equipe/Listar");
         }
 
+        [Route("Editar/{id}")]
+        public IActionResult Editar (int id){
+            Equipe equipeEncontrada = acessoBd.Equipe.First(x=> x.IdEquipe == id);
+            ViewBag.Equipe = equipeEncontrada;
+            return View("Alterar");
+        }
 
+        [Route("Atualizar")]
+        public IActionResult Atualizar (IFormCollection form){
+            Equipe equipe = new Equipe();
+            equipe.IdEquipe = int.Parse(form["IdEquipe"].ToString());
+            equipe.Name = form["Name"].ToString();
+            if(form.Files.Count > 0 ){
+                var file = form.Files[0];
+
+                var folder = Path.Combine(Directory.GetCurrentDirectory(), "wwwroot/img/Equipes");
+
+                if(!Directory.Exists(folder)){
+                    Directory.CreateDirectory(folder);
+                }
+
+                var path = Path.Combine(folder,file.FileName);
+
+                using(var stream = new FileStream(path, FileMode.Create)){
+                    file.CopyTo(stream);
+                }
+
+                equipe.Imagem =file.FileName;
+            }else{
+                equipe.Imagem = "padrao.png";
+            }
+
+            Equipe equipeEncontrada = acessoBd.Equipe.First(x => x.IdEquipe == equipe.IdEquipe);
+
+            equipeEncontrada.Name = equipe.Name;
+            equipeEncontrada.Imagem = equipe.Imagem;
+
+            acessoBd.Equipe.Update(equipeEncontrada);
+
+            acessoBd.SaveChanges();
+
+            return LocalRedirect("~/Equipe/Listar");
+        }
     }
 }

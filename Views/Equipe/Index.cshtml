@@ -33,17 +33,19 @@ Importante ter o enctype pra quando trabalhamos com arquivos
     </thead>
 
     <tbody>
-        
-        @foreach (Equipe equipe in ViewBag.Equipe)
+        @{
+        int cont=1;
+        foreach (Equipe equipe in ViewBag.Equipe)
         {
             <tr>
-                <td>@equipe.IdEquipe</td>
+                <td>@cont</td>
                 <td>@equipe.Name</td>
                 <td><img src="/img/Equipes/@equipe.Imagem" alt="Imagem da equipe @equipe.Name" width="50px"></td>
                 @* asp-area="" => igual descrição de imagem *@
                 <td><a asp-area="" asp-controller="Equipe" asp-action="Excluir" asp-route-id="@equipe.IdEquipe">Excluir</a> / <a asp-area="" asp-controller="Equipe" asp-action="Editar" asp-route-id="@equipe.IdEquipe">Editar</a></td>
             </tr>
-
+            cont++;
+        }
         }
     </tbody>
 
