@@ -6,19 +6,64 @@
 
 <h1>Tela de Jogadores</h1>
 
-<form method="post" action="@Url.Action("Cadastrar")" enctype="multipart/form-data">
-    <label for="">Nome</label>
-    <input type="text" name="Nome" required>
-    <label for="">E-mail</label>
-    <input type="email" name="Email" required>
-    <label for="">Imagem</label>
-    <input type="file" name="Imagem" id="inputImagem">
-    
-    <button type="submit">Cadastrar</button>
+<form method="post" action='@Url.Action("Cadastrar")'>
+    <label for="inputName">Nome</label>
+    <input type="text" name="Nome" id="inputName" required>
+    <label for="inputEmail">Email</label>
+    <input type="email" name="Email" id="inputEmail" required>
+    <label for="inputSenha">Senha</label>
+    <input type="password" name="Senha" id="inputSenha" required>
+    <label for="selectEquipe">Equipe</label>
+    <select name="IdEquipe" id="selectEquipe">
+        @{
+            foreach (Equipe equipe in ViewBag.Equipe)
+            {
+                <option value="@equipe.IdEquipe">@equipe.Name</option>
+            }
+        }
+        
+    </select>
 
-
-
-    
-
+    <button type = "submit">Cadastrar</button>
 </form>
+
+<table class="table table-striped table-reponsive">
+    <thead>
+        <th>Id</th>
+        <th>Nome</th>
+        <th>Email</th>
+        <th>Equipe</th>
+        <th>Ações</th>
+    </thead>
+
+    <tbody>
+        @{
+            foreach (Jogador jogador in ViewBag.Jogador)
+            {
+                <tr>
+                    <td>@jogador.IdJogador</td>
+                    <td>@jogador.Nome</td>
+                    <td>@jogador.Email</td>
+                    <td> <img src="/img/Equipes/@jogador.Equipe.Imagem" alt="Imagem da equipe @jogador.Equipe.Name"
+                            width="50px">
+                    </td>
+                    <td><a asp-area="" asp-controller="Jogador" asp-action="Excluir" asp-route-id="@jogador.IdJogador">Excluir</a> / <a asp-area="" asp-controller="Jogador" asp-action="Editar" asp-route-id="@jogador.IdJogador">Alterar</a></td>
+                </tr>
+            }
+        }
+    </tbody>
+</table>
+
+
+@* <form method="post" action="@Url.Action("Cadastrar")" enctype="multipart/form-data">
+<label for="">Nome</label>
+<input type="text" name="Nome" required>
+<label for="">E-mail</label>
+<input type="email" name="Email" required>
+<label for="">Imagem</label>
+<input type="file" name="Imagem" id="inputImagem">
+<select name="" id=""></select>
+
+<button type="submit">Cadastrar</button>
+</form> *@
 @* Usar Select *@
