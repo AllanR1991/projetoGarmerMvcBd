@@ -38,7 +38,6 @@ namespace projetoGarmerMvcBd.Controllers
 
             Jogador jogadorValido =  acessoBd.Jogador.FirstOrDefault(jogador => jogador.Email == email && jogador.Senha == senha);
             
-
            
             //Aqui precisamos implementar a seção
             //https://learn.microsoft.com/pt-br/aspnet/core/fundamentals/app-state?view=aspnetcore-7.0

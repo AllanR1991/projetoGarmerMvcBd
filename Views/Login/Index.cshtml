@@ -1,4 +1,4 @@
-@model Jogador;
+@model Jogador
 
 @{
     ViewData["Title"] = "Login";
@@ -10,7 +10,7 @@
     @TempData.Peek("Mensagem")
 </h2>
 
-<form method="" action="@Url.Action("Logar")">
+<form method="post" action="@Url.Action("Logar")">
 
     <label for="inputEmail">Email</label>
     <input type="email" name="Email" id="inputEmail">
