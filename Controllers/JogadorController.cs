@@ -34,6 +34,7 @@ namespace projetoGarmerMvcBd.Controllers
 
         public IActionResult Cadastrar(IFormCollection form)
         {
+            /*Obter os dados do formúlario e execultar*/
             Jogador novoJogador = new Jogador();
             novoJogador.Nome = form["Nome"].ToString();
             novoJogador.Email = form["Email"].ToString();
@@ -50,7 +51,9 @@ namespace projetoGarmerMvcBd.Controllers
 
         public IActionResult Excluir (int id)
         {
+            /*Pesquisa o Id no banco de dados*/
             Jogador jogador = acessoBd.Jogador.First(j =>j.IdJogador == id);
+            /*acessa o banco de dados do jogador e remove o objeto encontrado acima.*/
             acessoBd.Jogador.Remove(jogador);
             acessoBd.SaveChanges();
 
@@ -59,7 +62,9 @@ namespace projetoGarmerMvcBd.Controllers
 
         [Route("Editar/{id}")]
         public IActionResult Editar (int id){
+            /*Pesquisa o id no banco de dados*/
             Jogador jogadorEncontrada = acessoBd.Jogador.First(x=> x.IdJogador == id);
+            /*Armazena o objeto Jogador na viewbag para usar.*/
             ViewBag.Jogador = jogadorEncontrada;
             ViewBag.Equipe = acessoBd.Equipe.ToList();
             return View("Alterar");
@@ -67,39 +72,27 @@ namespace projetoGarmerMvcBd.Controllers
 
         [Route("Atualizar")]
         public IActionResult Atualizar (IFormCollection form){
-            Equipe equipe = new Equipe();
-            equipe.IdEquipe = int.Parse(form["IdEquipe"].ToString());
-            equipe.Name = form["Name"].ToString();
-            if(form.Files.Count > 0 ){
-                var file = form.Files[0];
 
-                var folder = Path.Combine(Directory.GetCurrentDirectory(), "wwwroot/img/Equipes");
+            /*Obtem os dados do formulario*/
+            Jogador jogador = new Jogador();
+            jogador.IdJogador = int.Parse(form["IdJogador"].ToString());
+            jogador.Nome = form["Nome"].ToString();
+            jogador.Email = form["Email"].ToString();
+            jogador.Senha = form["Senha"].ToString();
+            jogador.IdEquipe = int.Parse(form["IdEquipe"].ToString());
+            
+            Jogador jogadorEncontrado = acessoBd.Jogador.First(x => x.IdJogador == jogador.IdJogador);
 
-                if(!Directory.Exists(folder)){
-                    Directory.CreateDirectory(folder);
-                }
+            jogadorEncontrado.Nome = jogador.Nome;
+            jogadorEncontrado.Email = jogador.Email;
+            jogadorEncontrado.Senha = jogador.Senha;
+            jogadorEncontrado.IdEquipe = jogador.IdEquipe;
 
-                var path = Path.Combine(folder,file.FileName);
-
-                using(var stream = new FileStream(path, FileMode.Create)){
-                    file.CopyTo(stream);
-                }
-
-                equipe.Imagem =file.FileName;
-            }else{
-                equipe.Imagem = "padrao.png";
-            }
-
-            Equipe equipeEncontrada = acessoBd.Equipe.First(x => x.IdEquipe == equipe.IdEquipe);
-
-            equipeEncontrada.Name = equipe.Name;
-            equipeEncontrada.Imagem = equipe.Imagem;
-
-            acessoBd.Equipe.Update(equipeEncontrada);
+            acessoBd.Jogador.Update(jogadorEncontrado);
 
             acessoBd.SaveChanges();
 
-            return LocalRedirect("~/Equipe/Listar");
+            return LocalRedirect("~/Jogador/Listar");
         }
 
 

@@ -38,7 +38,9 @@ namespace projetoGarmerMvcBd.Infra
                 User Id = "Nome do usuario de login"
                 pwd = "senha do seu usuario"
                 */
-                optionsBuilder.UseSqlServer("Data Source = NOTE06-S15; Initial Catalog = gamerMvcBdManha ; User Id = sa; pwd = Senai@134; TrustServerCertificate = true");
+                
+                //Comando para acessaro BD em casa.
+                optionsBuilder.UseSqlServer("Data Source = ALLANR1991\\SQLEXPRESS; Initial Catalog = gamerMvcBdManha ; User Id = sa; pwd = 123456; TrustServerCertificate = true");
             }
             
         }
