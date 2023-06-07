@@ -26,6 +26,7 @@ namespace projetoGarmerMvcBd.Controllers
         //rota que chama o index
         public IActionResult Index()
         {
+            ViewBag.Login = HttpContext.Session.GetString("UserName");
             /*acessoBd.Equipe.ToList() => Retorna os dados da equipe*/
             /*ViewBag.Equipe => bag de equipe*/
             ViewBag.Equipe = acessoBd.Equipe.ToList();
@@ -103,6 +104,8 @@ namespace projetoGarmerMvcBd.Controllers
 
         [Route("Editar/{id}")]
         public IActionResult Editar (int id){
+            ViewBag.Login = HttpContext.Session.GetString("UserName");
+
             Equipe equipeEncontrada = acessoBd.Equipe.First(x=> x.IdEquipe == id);
             ViewBag.Equipe = equipeEncontrada;
             return View("Alterar");
@@ -110,30 +113,53 @@ namespace projetoGarmerMvcBd.Controllers
 
         [Route("Atualizar")]
         public IActionResult Atualizar (IFormCollection form){
-            Jogador jogador = new Jogador();
+            //objeto com os dados do formulario antigo
+                Equipe equipe= new Equipe();
+  
+                equipe.IdEquipe = int.Parse(form["IdEquipe"].ToString());
+
+                equipe.Name= form["Name"].ToString();
+                
+               
+                if (form.Files.Count > 0)
+            {
             
-            jogador.IdJogador = int.Parse(form["Nome"].ToString());
-            jogador.Nome = form["Nome"].ToString();
-            jogador.Email = form["Email"].ToString();
-            jogador.Senha = form["Senha"].ToString();
-            jogador.IdEquipe = int.Parse(form["IdEquipe"].ToString());
+                 var file = form.Files[0];
+                
+                var folder = Path.Combine(Directory.GetCurrentDirectory(),"wwwroot/img/Equipes");
 
+                if (!Directory.Exists(folder))
+                {
+                    Directory.CreateDirectory(folder);
+                }
 
+                var pathCaminho = Path.Combine(folder, file.FileName);
 
+                
+                using (var stream =new FileStream(pathCaminho, FileMode.Create))
+                {
+                    file.CopyTo(stream);
 
-            Jogador jogadorEncontrado = acessoBd.Jogador.First(x => x.IdJogador == jogador.IdJogador);
+                }
 
-            jogadorEncontrado.Nome = jogador.Nome;
-            jogadorEncontrado.Email = jogador.Email;
-            jogadorEncontrado.Senha = jogador.Senha;
-            jogadorEncontrado.IdEquipe = jogador.IdEquipe;
-           
+                  equipe.Imagem =file.FileName;
+            }
 
-            acessoBd.Jogador.Update(jogadorEncontrado);
+                 else
+                {
+                    equipe.Imagem="padrao.png";
+                }
 
-            acessoBd.SaveChanges();
+                Equipe equipeEncontrada = acessoBd.Equipe.First(x=> x.IdEquipe == equipe.IdEquipe);
 
-            return LocalRedirect("~/Jogador/Listar");
-        }
+                equipeEncontrada.Name= equipe.Name;
+                equipeEncontrada.Imagem=equipe.Imagem;
+
+                acessoBd.Equipe.Update(equipeEncontrada);
+                acessoBd.SaveChanges();
+
+                return LocalRedirect("~/Equipe/Listar");
+
+            }
     }
 }

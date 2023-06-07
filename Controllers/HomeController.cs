@@ -15,6 +15,7 @@ public class HomeController : Controller
 
     public IActionResult Index()
     {
+        ViewBag.Login = HttpContext.Session.GetString("UserName");
         return View();
     }
 

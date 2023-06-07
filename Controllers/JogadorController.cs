@@ -25,6 +25,8 @@ namespace projetoGarmerMvcBd.Controllers
         [Route("Listar")]
         public IActionResult Index()
         {
+            ViewBag.Login = HttpContext.Session.GetString("UserName");
+            
             ViewBag.Jogador = acessoBd.Jogador.ToList();
             ViewBag.Equipe = acessoBd.Equipe.ToList();
             return View();
@@ -62,9 +64,13 @@ namespace projetoGarmerMvcBd.Controllers
 
         [Route("Editar/{id}")]
         public IActionResult Editar (int id){
+
+            ViewBag.Login = HttpContext.Session.GetString("UserName");
+
             /*Pesquisa o id no banco de dados*/
             Jogador jogadorEncontrada = acessoBd.Jogador.First(x=> x.IdJogador == id);
             /*Armazena o objeto Jogador na viewbag para usar.*/
+            /*Viewbag varivel local*/
             ViewBag.Jogador = jogadorEncontrada;
             ViewBag.Equipe = acessoBd.Equipe.ToList();
             return View("Alterar");

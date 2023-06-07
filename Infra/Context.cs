@@ -40,7 +40,9 @@ namespace projetoGarmerMvcBd.Infra
                 */
                 
                 //Comando para acessaro BD em casa.
-                optionsBuilder.UseSqlServer("Data Source = ALLANR1991\\SQLEXPRESS; Initial Catalog = gamerMvcBdManha ; User Id = sa; pwd = 123456; TrustServerCertificate = true");
+                //optionsBuilder.UseSqlServer("Data Source = ALLANR1991\\SQLEXPRESS; Initial Catalog = gamerMvcBdManha ; User Id = sa; pwd = 123456; TrustServerCertificate = true");
+                //Comando para acessar o BD no Senai
+                optionsBuilder.UseSqlServer("Data Source = NOTE06-S15; Initial Catalog = gamerMvcBdManha ; User Id = sa; pwd = Senai@134; TrustServerCertificate = true");
             }
             
         }
