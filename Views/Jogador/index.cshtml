@@ -4,6 +4,9 @@
     ViewData["Title"] = "Jogador";
 }
 
+@if(ViewBag.Login == null){
+    <p style="color:red">@PeR.MensagemDeAcesso()</p>
+}else{
 <h1>Tela de Jogadores</h1>
 
 <form method="post" action='@Url.Action("Cadastrar")'>
@@ -68,3 +71,4 @@
 <button type="submit">Cadastrar</button>
 </form> *@
 @* Usar Select *@
+}

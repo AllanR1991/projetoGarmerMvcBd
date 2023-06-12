@@ -7,6 +7,11 @@
 
 <h1>Tela de Equipes</h1>
 
+
+
+@if(ViewBag.Login == null){
+    <p style="color:red">@PeR.MensagemDeAcesso()</p>
+}else{
 <!-- 
     post -> enviar
     get -> obter
@@ -51,3 +56,6 @@ Importante ter o enctype pra quando trabalhamos com arquivos
     </tbody>
 
 </table>
+
+}
+

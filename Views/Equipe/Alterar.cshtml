@@ -4,6 +4,9 @@
     ViewData["Title"] = "Alteraçao de Equipes";
 }
 
+@if(ViewBag.Login == null){
+    <p style="color:red">@PeR.MensagemDeAcesso()</p>
+}else{
 <form method="post" action="@Url.Action("Atualizar")" enctype="multipart/form-data">
     <input type="hidden" name="IdEquipe" id="" value="@ViewBag.Equipe.IdEquipe">
     <label for="">Nome da Equipe</label>
@@ -13,3 +16,4 @@
 
     <button type="submit">Atualizar</button>
 </form>
+}

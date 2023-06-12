@@ -2,6 +2,11 @@ namespace projetoGarmerMvcBd
 {
     public static class PeR
     {
+
+        public static string MensagemDeAcesso(){
+            return "Você não tem permissão de acesso ao sistema, favor efetuar login para ter acesso.";
+        }
+
         public static string PerguntaString(string pergunta)
         {
             Console.WriteLine(pergunta);

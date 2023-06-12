@@ -3,6 +3,9 @@
 @{
     ViewData["Title"]="Edit";
 }
+@if(ViewBag.Login == null){
+    <p style="color:red">@PeR.MensagemDeAcesso()</p>
+}else{
 
 <h1>Ediçao de Jogadores</h1>
 
@@ -33,3 +36,4 @@
 
     <button type = "submit">Salvar Alteração</button>
 </form>
+}
