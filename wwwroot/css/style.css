@@ -82,14 +82,6 @@ body {
     cursor: pointer;
 }
 
-.exibe-menu-nav{
-    display: block;    
-}
-
-.oculta-menu-nav{
-    display: none;
-}
-
 /********************* Header *********************/
 header {
     position: fixed;
@@ -711,7 +703,7 @@ footer #copyright {
     header .nav-bkg {
         position: static;
         /* justify-content: space-between; */
-        width: 30%;
+        width: max-content;
         height: auto;
         padding: 0;
         background-image: none;

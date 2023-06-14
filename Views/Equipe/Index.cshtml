@@ -12,14 +12,14 @@
 @if(ViewBag.Login == null){
     <p style="color:red">@PeR.MensagemDeAcesso()</p>
 }else{
+
 <!-- 
     post -> enviar
     get -> obter
 
-
-
 Importante ter o enctype pra quando trabalhamos com arquivos 
 -->
+
 <form method="post" action='@Url.Action("Cadastar")' enctype="multipart/form-data">
     <label for="inputName">Nome</label>
     <input type="text" name="Nome" id="inputName" required>
