@@ -1,16 +1,13 @@
 @model Jogador
 
-<head>
-    <link rel="stylesheet" href="~/css/login.css">
-</head>
 
 @{
     ViewData["Title"] = "Login";
 }
 
-<h2>
-    @TempData.Peek("Mensagem")
-</h2>
+
+    
+
 
 <main class="fundo-login">
         <div class="bkg-login">
@@ -33,6 +30,8 @@
                 </div>
 
                 <button type="submit" class="btn-logar">Logar</button>
+                <br>
+                <span>@TempData.Peek("Mensagem")</span>
             </form>
         </div>
 

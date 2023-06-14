@@ -5,11 +5,68 @@
     ViewData["Title"] = "Equipe";
 }
 
-<h1>Tela de Equipes</h1>
+<!-- MAIN -->
+    <main>
+
+        <section class="container-grid cadastro-equipes">
+            
+            
+            <form method="post" action="@Url.Action("Cadastar")" class="frm-cad-equipe" enctype="multipart/form-data">
+                <div class="cadequipe-titulo">
+                    <h1>Cadastro de Equipes</h1>
+                    <hr>
+                </div>
+
+                @* <input class="campo-entrada" type="number" id="idEquipe" placeholder="Digite o Id da sua equipe:"> *@
+                <input name="Nome" class="campo-entrada" type="text" placeholder="Digite o nome da sua equipe:" required>
+                <label for="foto-file">Imagem</label>
+                <input  type="file" name="Imagem" id="foto-file">
+
+                <button type = "submit">Cadastro</button>
+                
+                
+                
+                <!-- <select class="equipeid" id="equipeid">
+                    <option value="">Selecione uma Equipe</option>
+                    <option value="x">Equipe X</option>
+                    <option value="y">Equipe Y</option>
+                </select> -->
+            </form>
+
+            <!-- TABELA CADASTRO DE EQUIPES -->
+
+            <table>
+                <thead>
+                    <tr>
+                        <th>Id</th>
+                        <th>Nome</th>
+                        <th>Imagem</th>
+                        <th>Ações</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    @{
+        int cont=1;
+        foreach (Equipe equipe in ViewBag.Equipe)
+        {
+            <tr>
+                <td>@cont</td>
+                <td>@equipe.Name</td>
+                <td><img src="/img/Equipes/@equipe.Imagem" alt="Imagem da equipe @equipe.Name" width="50px"></td>
+                @* asp-area="" => igual descrição de imagem *@
+                
+                <td><a asp-area="" asp-controller="Equipe" asp-action="Excluir" asp-route-id="@equipe.IdEquipe"><img class="yellow-trash" src="~/assets/trash.png" alt=""></a> / <a asp-area="" asp-controller="Equipe" asp-action="Editar" asp-route-id="@equipe.IdEquipe">Editar</a></td>
+            </tr>
+            cont++;
+        }
+        }
+                </tbody>
+            </table>
+        </section>
+    </main>
 
 
-
-@if(ViewBag.Login == null){
+@* @if(ViewBag.Login == null){
     <p style="color:red">@PeR.MensagemDeAcesso()</p>
 }else{
 
@@ -48,7 +105,8 @@ Importante ter o enctype pra quando trabalhamos com arquivos
                 <td>@equipe.Name</td>
                 <td><img src="/img/Equipes/@equipe.Imagem" alt="Imagem da equipe @equipe.Name" width="50px"></td>
                 @* asp-area="" => igual descrição de imagem *@
-                <td><a asp-area="" asp-controller="Equipe" asp-action="Excluir" asp-route-id="@equipe.IdEquipe">Excluir</a> / <a asp-area="" asp-controller="Equipe" asp-action="Editar" asp-route-id="@equipe.IdEquipe">Editar</a></td>
+                
+                @*<td><a asp-area="" asp-controller="Equipe" asp-action="Excluir" asp-route-id="@equipe.IdEquipe"><img class="yellow-trash" src="~/assets/trash.png" alt=""></a> / <a asp-area="" asp-controller="Equipe" asp-action="Editar" asp-route-id="@equipe.IdEquipe">Editar</a></td>
             </tr>
             cont++;
         }
@@ -57,5 +115,5 @@ Importante ter o enctype pra quando trabalhamos com arquivos
 
 </table>
 
-}
+} *@
 
