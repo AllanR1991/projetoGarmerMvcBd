@@ -389,6 +389,10 @@
       "PackagePath": "staticwebassets\\img\\Equipes\\sol.jpeg"
     },
     {
+      "Id": "C:\\Users\\41017653836\\Desktop\\projetoGarmerMvcBd\\wwwroot\\js\\inputFile.js",
+      "PackagePath": "staticwebassets\\js\\inputFile.js"
+    },
+    {
       "Id": "C:\\Users\\41017653836\\Desktop\\projetoGarmerMvcBd\\wwwroot\\js\\site.js",
       "PackagePath": "staticwebassets\\js\\site.js"
     },

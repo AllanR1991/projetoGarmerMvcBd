@@ -1,6 +1,6 @@
 {
   "Version": 1,
-  "Hash": "25o96OM58RKO4XJHzuriOwfHsznN996B9jCMMRszXyI=",
+  "Hash": "v2EezQ5ZZOJvHPc1YDuvdjEsHcyJrhCD9HMWlY62Tpg=",
   "Source": "projetoGarmerMvcBd",
   "BasePath": "_content/projetoGarmerMvcBd",
   "Mode": "Default",
@@ -1681,6 +1681,23 @@
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
       "OriginalItemSpec": "wwwroot\\img\\Equipes\\sol.jpeg"
+    },
+    {
+      "Identity": "C:\\Users\\41017653836\\Desktop\\projetoGarmerMvcBd\\wwwroot\\js\\inputFile.js",
+      "SourceId": "projetoGarmerMvcBd",
+      "SourceType": "Discovered",
+      "ContentRoot": "C:\\Users\\41017653836\\Desktop\\projetoGarmerMvcBd\\wwwroot\\",
+      "BasePath": "_content/projetoGarmerMvcBd",
+      "RelativePath": "js/inputFile.js",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\js\\inputFile.js"
     },
     {
       "Identity": "C:\\Users\\41017653836\\Desktop\\projetoGarmerMvcBd\\wwwroot\\js\\site.js",
