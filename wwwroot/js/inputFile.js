@@ -1,7 +1,7 @@
 const input = document.querySelector(".inputFile");
 const preview = document.querySelector(".preview");
 
-input.style.opacity = 0;
+/* input.style.opacity = 0; */
 
 input.addEventListener("change", updateImageDisplay);
 
@@ -23,7 +23,7 @@ function updateImageDisplay() {
       const listItem = document.createElement("li");
       const para = document.createElement("p");
       if (validFileType(file)) {
-        para.textContent = `File name ${file.name}, file size ${returnFileSize(
+        para.textContent = `${file.name}, ${returnFileSize(
           file.size
         )}.`;
         const image = document.createElement("img");
@@ -68,3 +68,4 @@ function returnFileSize(number) {
   }
 }
 
+updateImageDisplay();

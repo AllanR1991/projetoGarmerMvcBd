@@ -1,19 +1,50 @@
 @model Equipe
 
+<link rel="stylesheet" href="~/css/equipes.css">
+
 @{
-    ViewData["Title"] = "Alteraçao de Equipes";
+		ViewData["Title"] = "Alteraçao de Equipes";
 }
 
 @if(ViewBag.Login == null){
-    <p style="color:red">@PeR.MensagemDeAcesso()</p>
-}else{
-<form method="post" action="@Url.Action("Atualizar")" enctype="multipart/form-data">
-    <input type="hidden" name="IdEquipe" id="" value="@ViewBag.Equipe.IdEquipe">
-    <label for="">Nome da Equipe</label>
-    <input type="text" name="Name" id="" value="@ViewBag.Equipe.Name">
-    <label for="">Imagem da Equipe</label>
-    <input type="file" name="Imagem" id="" value="@ViewBag.Equipe.Imagem">
 
-    <button type="submit">Atualizar</button>
+
+
+
+		<p style="color:red">@PeR.MensagemDeAcesso()</p>
+}else{
+		<main>
+			<section class="container-grid cadastro-equipes">		
+				<form method="post" action="@Url.Action("Atualizar")" class="frm-cad-equipe" enctype="multipart/form-data">
+					<div class="cadequipe-titulo">
+						<h1>Editar de Equipes</h1>
+						<hr>
+					</div>
+
+					<input type="hidden" name="IdEquipe" id="" value="@ViewBag.Equipe.IdEquipe">
+					<input name="Nome" class="campo-entrada" type="text" value="@ViewBag.Equipe.Name" required>
+									
+					<div>
+						<label onclick="updateImageDisplay()" class="foto" for="image_uploads">Escolha imagem da equipe (PNG, JPG)</label>
+						<input  class="inputFile" type="file" id="image_uploads" nome="Imagem" accept=".jpg, .jpeg, .png" value="@ViewBag.Equipe.Imagem"/>
+					</div>
+					<div class="preview">
+						<p>Não há nenhum imagem selecionado.</p>
+					</div>
+				<button type = "submit">Atualizar</button>
+			</form>
+		</section>
+	</main>
+
+@*
+<form method="post" action="@Url.Action("Atualizar")" enctype="multipart/form-data">
+		<input type="hidden" name="IdEquipe" id="" value="@ViewBag.Equipe.IdEquipe">
+		<label for="">Nome da Equipe</label>
+		<input type="text" name="Name" id="" value="@ViewBag.Equipe.Name">
+		<label for="">Imagem da Equipe</label>
+		<input type="file" name="Imagem" id="" value="@ViewBag.Equipe.Imagem">
+
+		<button type="submit">Atualizar</button>
 </form>
+*@	
 }
